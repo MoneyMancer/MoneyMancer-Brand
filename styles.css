@@ -20,6 +20,8 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 a {
@@ -222,6 +224,11 @@ summary {
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+}
+
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 720px) {
