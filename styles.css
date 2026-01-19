@@ -4,7 +4,8 @@
   --card: #ffffff;
   --text: #1f2a37;
   --muted: #5b6777;
-  --accent: #2f6fed;
+  --dark: #004525;
+  --accent: #009050;
   --border: #e3e7ef;
 }
 
@@ -36,12 +37,12 @@ a:hover {
 .container {
   width: min(1100px, 92%);
   margin: 0 auto;
-  padding: 48px 0 72px;
+  padding: 32px 0 48px;
 }
 
 header {
-  background: linear-gradient(135deg, #004525, #009050);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--dark), var(--accent));
+  color: var(--card);
   padding: 10px 0;
 }
 
@@ -88,29 +89,139 @@ main {
   padding-top: 32px;
 }
 
+/* === Buttons === */
+
+.button,
+button {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--accent);
+  color: var(--card);
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease,
+    background 0.12s ease;
+}
+
+.button:hover,
+button:hover {
+  background: var(--accent);
+  box-shadow: 0 6px 16px var(--accent);
+}
+
+.button:active,
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px var(--accent);
+}
+
+.button.secondary {
+  background: var(--card);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.button.ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--accent);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* === Form controls === */
+
+input,
+textarea,
+select {
+  appearance: none;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.2;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+/* Focus state: modern, accessible */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent);
+}
+
+/* Disabled state */
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background: var(--bg);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+/* Checkboxes/radios: keep native but make them consistent */
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  accent-color: var(--accent);
+}
+
+/* Optional: compact variant if you want tighter forms */
+.input-compact {
+  padding: 0.45rem 0.7rem;
+  border-radius: 9px;
+  font-size: 0.9rem;
+}
+
 section {
-  margin-top: 32px;
+  margin-top: 24px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 28px;
+  padding: 22px;
   box-shadow: 0 16px 32px rgba(15, 23, 42, 0.06);
 }
 
 section h2 {
   font-size: 1.4rem;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+}
+
+section > * + * {
+  margin-top: 0.75rem;
 }
 
 .grid {
   display: grid;
-  gap: 20px;
+  gap: 16px;
 }
 
 .list {
   list-style: none;
   display: grid;
-  gap: 12px;
+  gap: 8px;
 }
 
 .list li {
@@ -123,7 +234,7 @@ section h2 {
 
 .pill {
   display: inline-block;
-  background: rgba(47, 111, 237, 0.1);
+  background: var(--accent);
   color: var(--accent);
   padding: 4px 10px;
   border-radius: 999px;
@@ -148,7 +259,7 @@ footer {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 1.5rem;
+  padding: 1.25rem;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
@@ -169,7 +280,7 @@ nav ul {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1.25rem;
-  background: #fff;
+  background: var(--card);
 }
 
 .attestation + .attestation {
@@ -186,7 +297,7 @@ nav ul {
   padding-left: 1rem;
   border-left: 4px solid var(--accent);
   color: var(--text);
-  background: #f1f5f9;
+  background: var(--bg);
 }
 
 .attestation p {
@@ -196,7 +307,7 @@ nav ul {
 details {
   margin-top: 0.75rem;
   padding: 0.5rem 0.75rem;
-  background: #f8fafc;
+  background: var(--bg);
   border-radius: 10px;
   border: 1px solid var(--border);
 }
@@ -208,16 +319,16 @@ summary {
 }
 
 .policy {
-  background: #eef2ff;
+  background: var(--bg);
   border-radius: 12px;
   padding: 1rem 1.25rem;
-  border: 1px solid #c7d2fe;
+  border: 1px solid var(--bg);
 }
 
 .tag {
   display: inline-block;
-  background: #dbeafe;
-  color: #1e40af;
+  background: var(--bg);
+  color: var(--accent);
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
   font-size: 0.75rem;
