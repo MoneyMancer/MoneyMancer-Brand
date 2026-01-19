@@ -19,7 +19,7 @@ body {
     Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.25;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -42,7 +42,7 @@ a:hover {
 header {
   background: linear-gradient(135deg, #004525, #009050);
   color: #ffffff;
-  padding: 64px 0;
+  padding: 10px 0;
 }
 
 header .container {
