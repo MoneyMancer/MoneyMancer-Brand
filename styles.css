@@ -25,6 +25,46 @@ body {
   word-wrap: break-word;
 }
 
+/* Navigation Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.2s ease;
+}
+
+.sidebar a:hover {
+  background: var(--bg);
+}
+
+.main-content {
+  margin-left: 200px;
+  min-height: 100vh;
+}
+
 a {
   color: var(--accent);
   text-decoration: none;
